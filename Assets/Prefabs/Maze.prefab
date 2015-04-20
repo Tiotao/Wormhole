@@ -64,6 +64,7 @@ MonoBehaviour:
   crateAmount: 2
   golemAmount: 0
   clockAmount: 20
+  teleportAmount: 10
   clockInstance: {fileID: 128138, guid: 6bb63662e0281ac459e09b9e44ef5e3c, type: 2}
   golemInstance: {fileID: 107308, guid: 45cb3047c6c16134b894569e3d0a75ef, type: 2}
   zombieInstance: {fileID: 102234, guid: f35dffc1e8aba744e892d8fed62f4845, type: 2}
@@ -74,6 +75,7 @@ MonoBehaviour:
   skeletonInstance: {fileID: 172856, guid: f653a5cc971afdd4ba8e93076546eac0, type: 2}
   monsterAmount: 20
   monsterInstance: {fileID: 112596, guid: 1ec1b1c90fb7cdf4fa0abd25b7cfc9e4, type: 2}
+  teleportInstance: {fileID: 109784, guid: af80b74fac44a5b4487111b9640a3b6c, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

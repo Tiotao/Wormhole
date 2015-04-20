@@ -22,6 +22,7 @@ public class Maze : MonoBehaviour {
 	public int crateAmount = 5;
 	public int golemAmount = 5;
 	public int clockAmount = 5;
+	public int teleportAmount = 5;
 	public GameObject clockInstance;
 	public GameObject golemInstance;
 	public GameObject zombieInstance;
@@ -29,13 +30,14 @@ public class Maze : MonoBehaviour {
 	public GameObject crateInstance;
 	private BoxCollider mazeRangeCollider;
 	public GameCountDown countDown;
-
+	private ArrayList teleporterList ;
 	public int skeletonAmount = 5;
 	public GameObject skeletonInstance;
 	public int monsterAmount = 5;
 	public GameObject monsterInstance;
+	public GameObject teleportInstance;
 
-	float DROP_DISTANCE = 11.0f;
+	float DROP_DISTANCE = 5f;
 	Vector2 baseI; //x: minI, y:maxI
 	Vector2 baseJ; //x: minJ, y:minJ
 
@@ -43,7 +45,7 @@ public class Maze : MonoBehaviour {
 	void Awake(){
 		gameManager = GameObject.FindGameObjectWithTag ("GameManager");
 		countDown = gameManager.GetComponent <GameCountDown> ();
-
+		teleporterList = new ArrayList();
 	}
 
 	void OnTriggerExit (Collider other)
@@ -135,8 +137,8 @@ public class Maze : MonoBehaviour {
 		Destroy (entryCell, 0f);
 		Destroy (otherSideOfEntryCell, 0f);
 		for (int i = 0; i < potionAmount; i++) {
-			float randomX = Random.Range (0, 2 * size.x);
-			float randomZ = Random.Range (0, 2 * size.z);
+			float randomX = Random.Range (-2 * size.x, 2 * size.x);
+			float randomZ = Random.Range (-2 * size.z, 2 * size.z);
 			if(randomX < -2 * size.x+32 && randomZ < -2 * size.z+32){
 				float XorZ = Random.Range(0, 1);
 				if(XorZ > 0.5){
@@ -144,6 +146,14 @@ public class Maze : MonoBehaviour {
 				} else {
 					randomZ = Random.Range (-2 * size.z+32, 2 * size.z);
 				}
+			}
+			randomX = Mathf.Floor(randomX);
+			randomZ = Mathf.Floor(randomZ);
+			if(randomX % 4 == 0){
+				randomX = randomX + 2;
+			}
+			if(randomZ % 4 == 0){
+				randomZ = randomZ + 2;
 			}
 			Instantiate(potionInstance, new Vector3(randomX, DROP_DISTANCE, randomZ), Quaternion.identity);
 			
@@ -160,9 +170,56 @@ public class Maze : MonoBehaviour {
 					randomZ = Random.Range (-2 * size.z+32, 2 * size.z);
 				}
 			}
-
+			randomX = Mathf.Floor(randomX);
+			randomZ = Mathf.Floor(randomZ);
+			if(randomX % 4 == 0){
+				randomX = randomX + 2;
+			}
+			if(randomZ % 4 == 0){
+				randomZ = randomZ + 2;
+			}
 			Instantiate(clockInstance, new Vector3(randomX, DROP_DISTANCE, randomZ), Quaternion.identity);
 			
+		}
+
+		for (int i = 0; i < teleportAmount; i++) {
+			float randomX = Random.Range (-2 * size.x, 2 * size.x);
+			float randomZ = Random.Range (-2 * size.z, 2 * size.z);
+			if(randomX < -2 * size.x+32 && randomZ < -2 * size.z+32){
+				float XorZ = Random.Range(0, 1);
+				if(XorZ > 0.5){
+					randomX = Random.Range (-2 * size.x+32, 2 * size.x);
+				} else {
+					randomZ = Random.Range (-2 * size.z+32, 2 * size.z);
+				}
+			}
+			randomX = Mathf.Floor(randomX);
+			randomZ = Mathf.Floor(randomZ);
+			if(randomX % 4 == 0){
+				randomX = randomX + 2;
+			}
+			if(randomZ % 4 == 0){
+				randomZ = randomZ + 2;
+			}
+			GameObject t = (GameObject)Instantiate(teleportInstance, new Vector3(randomX, DROP_DISTANCE, randomZ), Quaternion.identity);
+			CustomTeleporter s = t.GetComponentInChildren<CustomTeleporter>();
+			s.destinationPad = new Transform[teleportAmount-1];
+			teleporterList.Add (t);
+
+		}
+
+		for (int i = 0; i < teleportAmount; i++) {
+			GameObject t = (GameObject)teleporterList[i];
+			CustomTeleporter s = t.GetComponentInChildren<CustomTeleporter>();
+			int index = 0;
+			for (int j = 0; j < teleportAmount; j++) {
+				if (j != i){
+					GameObject target = (GameObject)teleporterList[j];
+					s.destinationPad.SetValue(target.GetComponentInChildren<CustomTeleporter>().gameObject.transform, index);
+					index++;
+				}
+
+			}
 		}
 
 
@@ -178,6 +235,15 @@ public class Maze : MonoBehaviour {
 					randomZ = Random.Range (-2 * size.z+32, 2 * size.z);
 				}
 			}
+			randomX = Mathf.Floor(randomX);
+			randomZ = Mathf.Floor(randomZ);
+			if(randomX % 4 == 0){
+				randomX = randomX + 2;
+			}
+			if(randomZ % 4 == 0){
+				randomZ = randomZ + 2;
+			}
+
 			Instantiate(crateInstance, new Vector3(randomX, DROP_DISTANCE, randomZ), Quaternion.identity);
 			
 		}
@@ -193,20 +259,41 @@ public class Maze : MonoBehaviour {
 					randomZ = Random.Range (-2 * size.z+40, 2 * size.z);
 				}
 			}
+			randomX = Mathf.Floor(randomX);
+			randomZ = Mathf.Floor(randomZ);
+			if(randomX % 4 == 0){
+				randomX = randomX + 2;
+			}
+			if(randomZ % 4 == 0){
+				randomZ = randomZ + 2;
+			}
 			Instantiate(zombieInstance, new Vector3(randomX, DROP_DISTANCE, randomZ), Quaternion.identity);
 			
 		}
 
 		for (int i = 0; i < skeletonAmount; i++) {
-			float randomX = Random.Range (-2 * size.x+45, 2 * size.x);
-			float randomZ = Random.Range (-2 * size.z+45, 2 * size.z);
+			float randomX = Mathf.Floor(Random.Range (-2 * size.x+45, 2 * size.x));
+			float randomZ = Mathf.Floor(Random.Range (-2 * size.z+45, 2 * size.z));
+			if(randomX % 4 == 0){
+				randomX = randomX + 2;
+			}
+			if(randomZ % 4 == 0){
+				randomZ = randomZ + 2;
+			}
 			Instantiate(skeletonInstance, new Vector3(randomX, DROP_DISTANCE, randomZ), Quaternion.identity);
 			
 		}
 
 		for (int i = 0; i < monsterAmount; i++) {
-			float randomX = Random.Range (-2 * size.x+50, 2 * size.x);
-			float randomZ = Random.Range (-2 * size.z+50, 2 * size.z);
+			float randomX = Mathf.Floor(Random.Range (-2 * size.x+50, 2 * size.x));
+			float randomZ = Mathf.Floor(Random.Range (-2 * size.z+50, 2 * size.z));
+			if(randomX % 4 == 0){
+				randomX = randomX + 2;
+			}
+			if(randomZ % 4 == 0){
+				randomZ = randomZ + 2;
+			}
+
 			Instantiate(monsterInstance, new Vector3(randomX, DROP_DISTANCE, randomZ), Quaternion.identity);
 			
 		}

@@ -1,12 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\StartScreenScript.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ZombieHealth.cs">
     <Files>
-      <File FileName="Assets\Teleportation Pad\CustomTeleporter.cs" Line="98" Column="76" />
-      <File FileName="Assets\GameCountDown.cs" Line="50" Column="68" />
-      <File FileName="Assets\Scripts\ZombieAttack.cs" Line="30" Column="50" />
-      <File FileName="Assets\Scripts\ZombieHealth.cs" Line="97" Column="37" />
-      <File FileName="Assets\Scripts\StartScreenScript.cs" Line="7" Column="3" />
+      <File FileName="Assets\Scripts\StartScreenScript.cs" Line="6" Column="25" />
+      <File FileName="Assets\Scripts\ZombieAttack.cs" Line="26" Column="47" />
+      <File FileName="Assets\Scripts\ZombieHealth.cs" Line="85" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

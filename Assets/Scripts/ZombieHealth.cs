@@ -80,9 +80,9 @@ public class ZombieHealth : MonoBehaviour {
 
 		Vector3 dropOffPos = new Vector3(transform.position.x, 1.0f, transform.position.z);
 		float random = Random.Range(0f,1f);
-		if (random<0.85f){
+		if (random<0.50f){
 			Instantiate(crateInstance,dropOffPos, Quaternion.identity);
-		} else if (random<0.9f){
+		} else if (random<0.75f){
 			Instantiate(potionInstance,dropOffPos, Quaternion.identity);
 		} else {
 			Instantiate(clockInstance,dropOffPos, Quaternion.identity);
