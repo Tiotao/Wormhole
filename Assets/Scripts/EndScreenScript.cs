@@ -14,11 +14,11 @@ public class EndScreenScript : MonoBehaviour {
 		score = holder.score;
 		GameObject points = GameObject.FindGameObjectWithTag ("ScoreText");
 		Text scoreText = points.GetComponent<Text>();
-		scoreText.text = score.ToString();
+		scoreText.text = "Congratulations on completing WORMHOLE with " + score.ToString()+ " Points";
 
 	}
 	
 	public void OnClickPlay(){
-		Application.Quit ();
+		Application.LoadLevel("StartScreen");
 	}
 }

@@ -11445,7 +11445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99819f768044c74b95635e8738784fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 500
   currentHealth: 0
   healthSlider: {fileID: 1577614976}
   damageImage: {fileID: 1211267512}

@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\CameraFollow.cs" />
+     <Compile Include="Assets\EndSceneCamerea.cs" />
      <Compile Include="Assets\EndingSound.cs" />
      <Compile Include="Assets\Feedback.cs" />
      <Compile Include="Assets\GameCountDown.cs" />
