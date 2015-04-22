@@ -48,6 +48,9 @@ public class PlayerHealth : MonoBehaviour {
 			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
 		}
 		damaged = false;
+		if (transform.position.y < 0) {
+			transform.position = new Vector3(transform.position.x, 6.0f, transform.position.z);
+		}
 	}
 	
 	
