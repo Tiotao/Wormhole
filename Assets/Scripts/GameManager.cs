@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,11 +7,13 @@ public class GameManager : MonoBehaviour {
 	public Maze mazePrefab;
 	private Maze mazeInstance;
 	private bool pauseEnabled = false; 
+	GameObject player;
 
 	private IEnumerator Start () {
 		//BeginGame();
 		mazeInstance = Instantiate(mazePrefab) as Maze;
 		yield return StartCoroutine(mazeInstance.Generate());
+
 
 	}
 	
@@ -35,10 +37,18 @@ public class GameManager : MonoBehaviour {
 
 
 	}
-	
+
+	void OnTriggerExit (Collider other)
+	{
+		Debug.Log("OUT");
+		if(other.gameObject == player){
+			other.gameObject.GetComponent<PlayerHealth>().TakeDamage(300);
+		}
+	}
 	private void BeginGame () {
 		mazeInstance = Instantiate(mazePrefab) as Maze;
 		StartCoroutine(mazeInstance.Generate());
+		player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	private void RestartGame () {

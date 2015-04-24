@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_4_6_3;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_2;UNITY_4_6;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_IL2CPP;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;UNITY5_SCRIPTING_IN_UNITY4;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_MONO;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -46,17 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CameraFollow.cs" />
-     <Compile Include="Assets\EndSceneCamerea.cs" />
-     <Compile Include="Assets\EndingSound.cs" />
-     <Compile Include="Assets\Feedback.cs" />
-     <Compile Include="Assets\GameCountDown.cs" />
-     <Compile Include="Assets\Score.cs" />
+     <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\CharacterMotor.cs" />
      <Compile Include="Assets\Scripts\Clock.cs" />
      <Compile Include="Assets\Scripts\CrateEffect.cs" />
+     <Compile Include="Assets\Scripts\EndSceneCamerea.cs" />
      <Compile Include="Assets\Scripts\EndScreenScript.cs" />
+     <Compile Include="Assets\Scripts\EndingSound.cs" />
      <Compile Include="Assets\Scripts\FPSInputController.cs" />
+     <Compile Include="Assets\Scripts\Feedback.cs" />
+     <Compile Include="Assets\Scripts\GameCountDown.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\IntVector2.cs" />
      <Compile Include="Assets\Scripts\Maze.cs" />
@@ -71,14 +70,16 @@
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\PotionEffect.cs" />
+     <Compile Include="Assets\Scripts\Score.cs" />
      <Compile Include="Assets\Scripts\StartScreenScript.cs" />
+     <Compile Include="Assets\Scripts\TeleporterPosition.cs" />
      <Compile Include="Assets\Scripts\ZombieAttack.cs" />
+     <Compile Include="Assets\Scripts\ZombieDome.cs" />
      <Compile Include="Assets\Scripts\ZombieHealth.cs" />
      <Compile Include="Assets\Scripts\ZombieMovement.cs" />
      <Compile Include="Assets\Scripts\footstep.cs" />
+     <Compile Include="Assets\Scripts\zombieRandomMovement.cs" />
      <Compile Include="Assets\Teleportation Pad\CustomTeleporter.cs" />
-     <Compile Include="Assets\TeleporterPosition.cs" />
-     <Compile Include="Assets\ZombieDome.cs" />
      <Compile Include="Assets\_External\GroundFog\Scripts\FreeflightCamera.cs" />
      <Compile Include="Assets\_External\GroundFog\Scripts\GroundFog.cs" />
      <Compile Include="Assets\_External\Pathfinding\Scripts\DynamicMapUpdate.cs" />
@@ -96,7 +97,6 @@
      <Compile Include="Assets\_External\torch\scene\script\TorchSlider.cs" />
      <Compile Include="Assets\_External\torch\scene\script\Torchslider2.cs" />
      <Compile Include="Assets\_External\torch\scripts\Torchelight.cs" />
-     <Compile Include="Assets\zombieRandomMovement.cs" />
      <None Include="Assets\_External\Destroyed_city_FREE\Destroyed_city_FREE_Info.txt" />
      <None Include="Assets\_External\Monster2\Shaders\specillumShader.shader" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
@@ -107,7 +107,7 @@
      <None Include="Assets\_External\Monster2\Shaders\monsterShader.shader" />
      <None Include="Assets\_External\Destroyed_city_FREE\Shaders\AlphaTest-DiffuseDoubleSide.shader" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.3/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.2/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

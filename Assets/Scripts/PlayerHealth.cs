@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour {
 
-	public int startingHealth = 100;
+	public int startingHealth = 300;
 	public int currentHealth;
 	public Slider healthSlider;
 	public Image damageImage;
@@ -75,9 +75,9 @@ public class PlayerHealth : MonoBehaviour {
 
 		currentHealth += amount;
 
-		if(currentHealth >= 100)
+		if(currentHealth >= 300)
 		{
-			currentHealth = 100;
+			currentHealth = 300;
 		}
 		
 		healthSlider.value = currentHealth;

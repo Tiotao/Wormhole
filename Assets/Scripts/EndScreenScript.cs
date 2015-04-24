@@ -21,4 +21,10 @@ public class EndScreenScript : MonoBehaviour {
 	public void OnClickPlay(){
 		Application.LoadLevel("StartScreen");
 	}
+
+	public void Update(){
+		if (Input.anyKeyDown) {
+			Application.LoadLevel("StartScreen");
+		}
+	}
 }
